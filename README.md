@@ -9,6 +9,17 @@ Project: MB Comfort Closure & SmartStart
 ### Purpose  
 Monitors OEM fob messages via RS232 from Xpresskit black box and  
 activates window roll-up on second lock press only if car is already locked.  
+
+### How it works
+The Xpresskit black box communicates to the car's ECUs over CAN bus, and offers 
+both control over body functions such as locking/unlocking doors, controlling 
+windows, etc. and can also communicate a status change of the car's inputs. 
+The Digispark monitors the RS232 port of the Xpresskit black box and listens 
+for the message that the car has been locked using the remote key fob. If the 
+Digispark detects that two consecutive lock requests have been sent from the 
+key fob within a short window of time, the Digispark will send the window roll-
+up request to the black box, and the black box will actuate the windows and 
+moonroof until they are all closed.
   
 #### Pin Map  
  Pin 0 - future use  
